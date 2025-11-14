@@ -47,13 +47,13 @@ class Carnivore extends Animal {
   // Метод, що кусає іншу тварину (victim)
   bite(victim) {
     // 1. Не працює, якщо це інший Carnivore
-    if (victim instanceof Carnivore) {
+    if (
+      victim instanceof Carnivore ||
+      (victim instanceof Herbivore && victim.hidden)
+    ) {
       return; // Нічого не робимо
-    }
-
-    // 2. Перевірка, чи не ховається Herbivore
-    if (victim instanceof Herbivore && victim.hidden === true) {
-      return; // Нічого не робимо, якщо ховається
+      // 2. Перевірка, чи не ховається Herbivore
+      // Нічого не робимо, якщо ховається
     }
 
     // 3. Зменшуємо здоров'я жертви на 50
